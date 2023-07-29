@@ -32,9 +32,9 @@ INSTALLED_APPS += [
 ]
 
 INSTALLED_APPS += [
-    # 'api',
-    # 'common',
-    # 'inventory',
+    'api',
+    'common',
+    'backlogger',
 ]
 
 # Must be last APP!
