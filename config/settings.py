@@ -10,6 +10,9 @@ environ.Env.read_env(env.str(root(), '.env'))
 
 BASE_DIR = root()
 
+# Custom User model
+AUTH_USER_MODEL = 'users.User'
+
 SECRET_KEY = env.str('SECRET_KEY')
 DEBUG = env.bool('DEBUG', default=False)
 ALLOWED_HOSTS = env.str('ALLOWED_HOSTS', default='').split(' ')
