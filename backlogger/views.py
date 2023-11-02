@@ -1,6 +1,6 @@
 from rest_framework import viewsets, permissions
 from .models.mBackLogItem import BackLogItem
-from .serializers import BackLogItemSerializer
+from backlogger.serializers.api.task import BackLogItemSerializer
 
 
 class BackLogItemViewSet(viewsets.ModelViewSet):
