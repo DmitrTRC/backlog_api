@@ -7,5 +7,5 @@ router = DefaultRouter()
 router.register(r'backlog-items', BackLogItemViewSet)
 
 urlpatterns = [
-    path('backlog-items', include(router.urls)),
+    path('', include(router.urls)),
 ]
