@@ -8,6 +8,8 @@ urlpatterns = [
     # path('auth/', include('djoser.urls.base')),
     path('auth/', include('djoser.urls.jwt')),
 
+    path('', include('backlogger.urls')),
+
 ]
 
 urlpatterns += doc_urls

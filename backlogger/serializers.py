@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from models.mBackLogItem import BackLogItem
+from .models.mBackLogItem import BackLogItem
 from django.contrib.auth.models import User
 
 
