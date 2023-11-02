@@ -3,12 +3,26 @@ from django.contrib.auth.models import User
 
 
 class BackLogItem(models.Model):
+    PRIORITY_CHOICES = [
+        ('L', 'Low'),
+        ('M', 'Medium'),
+        ('H', 'High'),
+    ]
+
+    STAGE_CHOICES = [
+        ('BL', 'Backlog'),
+        ('TD', 'To Do'),
+        ('IP', 'In Progress'),
+        ('DN', 'Done'),
+    ]
+
     title = models.CharField('title', max_length=200, blank=False, null=False)
     description = models.TextField('description', blank=True, null=True)
-    is_done = models.BooleanField(default=False)
-    is_important = models.BooleanField(default=False)
+    priority = models.CharField('priority', max_length=1, choices=PRIORITY_CHOICES, default='L')
+    stage = models.CharField('stage', max_length=2, choices=STAGE_CHOICES, default='BL')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False,
                                    related_name='backlog_items')
 
