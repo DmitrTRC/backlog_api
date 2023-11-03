@@ -1,4 +1,4 @@
-from rest_framework import viewsets, permissions
+from rest_framework import viewsets, permissions, filters
 from .models.mBackLogItem import BackLogItem
 from backlogger.serializers.api.task import BackLogItemSerializer
 
@@ -10,6 +10,8 @@ class BackLogItemViewSet(viewsets.ModelViewSet):
     queryset = BackLogItem.objects.all()
     serializer_class = BackLogItemSerializer
     permission_classes = [permissions.IsAuthenticated]
+
+    filterset_fields = ['priority']
 
     def perform_create(self, serializer):
         # Set the created_by field to the current user.
