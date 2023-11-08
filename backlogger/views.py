@@ -14,5 +14,10 @@ class BackLogItemViewSet(viewsets.ModelViewSet):
     filterset_fields = ['priority']
 
     def perform_create(self, serializer):
+        """
+        Create a new backlog item.
+        :param serializer:
+        :return:
+        """
         # Set the created_by field to the current user.
         serializer.save(created_by=self.request.user)
