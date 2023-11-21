@@ -37,7 +37,7 @@ class BackLogItem(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     # The user who created the backlog item.
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False,
+    created_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=False, null=False,
                                    related_name='backlog_items')
 
     def __str__(self):

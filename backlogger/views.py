@@ -11,7 +11,7 @@ class BackLogItemViewSet(viewsets.ModelViewSet):
     serializer_class = BackLogItemSerializer
     permission_classes = [permissions.IsAuthenticated]
 
-    filterset_fields = ['priority']
+    filterset_fields = ['priority', 'stage']
 
     def perform_create(self, serializer):
         """
