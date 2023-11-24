@@ -24,6 +24,7 @@ INSTALLED_APPS = [
 
 ]
 
+# DJANGO APPS
 INSTALLED_APPS += [
     'rest_framework',
     'django_filters',
@@ -31,6 +32,7 @@ INSTALLED_APPS += [
 
 ]
 
+# THIRD PARTY APPS
 INSTALLED_APPS += [
     'api',
     'common',

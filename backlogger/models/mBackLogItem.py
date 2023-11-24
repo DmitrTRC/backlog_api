@@ -3,6 +3,19 @@ from django.contrib.auth.models import User
 
 
 class BackLogItem(models.Model):
+    """
+       Represents an item in the project backlog.
+
+       Attributes:
+           title (str): Title of the backlog item.
+           description (str): Detailed description of the backlog item.
+           priority (str): Priority of the item, can be 'L', 'M', or 'H'.
+           stage (str): Current stage of the item, can be 'BL', 'TD', 'IP', or 'DN'.
+           created_at (datetime): Timestamp when the item was created.
+           updated_at (datetime): Timestamp when the item was last updated.
+           created_by (User): The user who created the backlog item.
+       """
+
     PRIORITY_CHOICES = [
         ('L', 'Low'),
         ('M', 'Medium'),
@@ -23,7 +36,8 @@ class BackLogItem(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE, blank=False, null=False,
+    # The user who created the backlog item.
+    created_by = models.ForeignKey(User, on_delete=models.DO_NOTHING, blank=False, null=False,
                                    related_name='backlog_items')
 
     def __str__(self):
